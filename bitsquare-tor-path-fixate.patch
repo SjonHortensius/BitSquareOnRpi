@@ -1,0 +1,22 @@
+From 338f7f117939ecc2fc302c3d57079f6c81c851a7 Sun Jun 12 00:00:00 2016
+From: SjonHortensius <sjon@hortensius.net>
+Date: Sun, 12 Jun 2016 23:12:01 +0100
+Subject: [PATCH] hardcode path to tor binary for performance
+
+---
+ .../main/java/com/msopentech/thali/toronionproxy/OnionProxyManager.java | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/jtorproxy/src/main/java/com/msopentech/thali/toronionproxy/OnionProxyManager.java b/jtorproxy/src/main/java/com/msopentech/thali/toronionproxy/OnionProxyManager.java
+index 5d43d97..bf12f37 100644
+--- a/jtorproxy/src/main/java/com/msopentech/thali/toronionproxy/OnionProxyManager.java
++++ b/jtorproxy/src/main/java/com/msopentech/thali/toronionproxy/OnionProxyManager.java
+@@ -417,7 +417,7 @@ public synchronized boolean installAndStartTorOp() throws IOException, Interrupt
+         // Watch for the auth cookie file being created/updated
+         WriteObserver cookieObserver = onionProxyContext.generateWriteObserver(cookieFile);
+         // Start a new Tor process
+-        String torPath = onionProxyContext.getTorExecutableFile().getAbsolutePath();
++        String torPath = "/usr/bin/tor";
+         String configPath = onionProxyContext.getTorrcFile().getAbsolutePath();
+         String pid = onionProxyContext.getProcessId();
+         String[] cmd = {torPath, "-f", configPath, OWNER, pid};

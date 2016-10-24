@@ -19,8 +19,8 @@ cd ~/src
 [[ -d bitsquare ]] || git clone https://github.com/bitsquare/bitsquare.git
 cd bitsquare/; git pull
 
-wget https://github.com/SjonHortensius/bitsquare/commit/338f7f117939ecc2fc302c3d57079f6c81c851a7.patch || :
-patch -p1 <338f7f117939ecc2fc302c3d57079f6c81c851a7.patch || :
+wget https://raw.githubusercontent.com/SjonHortensius/BitSquareOnRpi/master/bitsquare-tor-path-fixate.patch || :
+patch -p1 <bitsquare-tor-path-fixate.patch || :
 
 mvn clean package -DskipTests
 
